@@ -5,7 +5,7 @@
 <br>
 <br>
 
-![](./reciboImg5.png)
+![](./reciboImg.png)
 <br>
 ![](./reciboImg2.png)<br>
 ![](./reciboImg3.png)<br>
