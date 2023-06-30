@@ -1,0 +1,11 @@
+input::placeholder {
+  color: white !important;
+}
+
+.btn-shadow:hover {
+  box-shadow: 2px 2px 2px #fff;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}

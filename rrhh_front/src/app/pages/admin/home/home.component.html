@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<main class="container-fluid animated fast fadeIn" *ngIf="loading">
+  <section class="row justify-content-center align-items-center">
+    <!-- //? form   -->
+    <section class="col-12 col-lg-3">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="title text-white text-decoration-underline">
+            Buscar Empleado
+          </h2>
+        </div>
+      </div>
+      <!-- form  -->
+      <form
+        action=""
+        class="row"
+        [formGroup]="forma"
+        (submit)="filterEmpleado()"
+      >
+        <label class="text-secondary para fs-6" for="">Nombre</label>
+        <div class="col-12 input-group mb-3 input-group-sm">
+          <input
+            type="text"
+            placeholder="Nombre"
+            formControlName="nombre"
+            [class.is-invalid]="validateInput('nombre')"
+            class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+
+        <label class="text-secondary para fs-6" for="">Apellido</label>
+        <div class="col-12 input-group mb-3 input-group-sm">
+          <input
+            type="text"
+            placeholder="Apellido"
+            formControlName="apellido"
+            [class.is-invalid]="validateInput('apellido')"
+            class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+        <label class="text-secondary para fs-6" for=""
+          >DNI
+          <span class="text-warning para">( Campo mínimo Requerido.) </span>
+        </label>
+        <div class="col-12 input-group mb-3 input-group-sm">
+          <input
+            type="number"
+            placeholder="Dni"
+            formControlName="dni"
+            [class.is-invalid]="validateInput('dni')"
+            class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+        <div class="col-12 d-grid gap-2">
+          <button
+            class="btn-shadow title btn btn-warning rounded-0 btn-sm"
+            type="submit"
+          >
+            Buscar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!--//? seccion de empleado -->
+    <section class="col-md-10 my-5">
+      <h2 class="title text-white-50">Listado de Empleado</h2>
+      <br />
+      <div class="row row-cols-1 row-cols-md-3">
+        <div class="col" *ngFor="let empleado of listEmpleadosFilter">
+          <app-card-empleado [empleado]="empleado"></app-card-empleado>
+        </div>
+        <p
+          *ngIf="!listEmpleados.length"
+          class="text-danger fs-5 text-decoration-underline"
+        >
+          Aun no tiene Empleados Agregados.
+        </p>
+      </div>
+    </section>
+  </section>
+</main>

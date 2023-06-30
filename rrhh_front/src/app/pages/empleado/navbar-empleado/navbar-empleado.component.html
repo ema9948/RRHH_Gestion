@@ -1,0 +1,44 @@
+<nav
+  class="col-12 navbar navbar-expand-md animated fast fadeIn nav-color mb-5 animated fast fadeIn"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand titleFon" routerLink="/home">
+      <!--//! Icono  -->
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            [routerLink]="['..', 'inicio']"
+            class="nav-link titleFon title"
+            aria-current="page"
+            routerLinkActive="active"
+            >Datos Personales</a
+          >
+        </li>
+        <li class="nav-item title">
+          <a
+            [routerLink]="['..', 'recibos']"
+            class="nav-link titleFon"
+            routerLinkActive="active"
+            >Recibos</a
+          >
+        </li>
+      </ul>
+      <form class="d-flex">
+        <a (click)="salir()" class="btn btn-dark title btn-sm"> Salir </a>
+      </form>
+    </div>
+  </div>
+</nav>

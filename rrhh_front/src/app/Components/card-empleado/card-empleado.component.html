@@ -1,0 +1,56 @@
+<div class="card mb-3 animated fast fadeIn">
+  <div class="card-body">
+    <article class="card-text d-flex gap-5">
+      <div>
+        <p class="flex-fill">
+          <span class="title fw-bold fs-6 text-secondary">
+            Nombre y Apellido
+          </span>
+          <br />
+          <span class="para fs-5 fw-light">
+            {{
+              empleado.usuarioDetalles.nombre +
+                " " +
+                empleado.usuarioDetalles.apellido
+            }}
+          </span>
+        </p>
+        <p class="flex-fill">
+          <span class="title fw-bold fs-6 text-secondary"> Telefono </span>
+          <br />
+          <span class="para fs-4">
+            {{ empleado.usuarioDetalles.telefono }}
+          </span>
+        </p>
+      </div>
+      <div>
+        <p class="flex-fill">
+          <span class="title fw-bold fs-6 text-secondary">dni </span>
+          <br />
+          <span class="para fs-4">{{ empleado.usuarioDetalles.dni }} </span>
+        </p>
+        <p class="flex-fill">
+          <span class="title fw-bold fs-6 text-secondary">Ultimo Recibo</span>
+          <br />
+          <span class="para fs-4">
+            <!-- //! Generar pipes Date  -->
+            {{
+              empleado.recibos.length > 0
+                ? (empleado.recibos[0].createOn | date)
+                : "--"
+            }}
+          </span>
+        </p>
+      </div>
+    </article>
+    <div class="col-12 d-grid gap-2">
+      <a
+        [routerLink]="['..', 'empleado', empleado.id, 'detalles']"
+        class="btn-shadow title btn btn-outline-primary rounded-0"
+        type="button"
+      >
+        Ver mas..
+      </a>
+    </div>
+  </div>
+</div>

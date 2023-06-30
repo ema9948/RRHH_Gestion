@@ -1,0 +1,71 @@
+<main class="container my-3 animated fast fadeIn" *ngIf="loading">
+  <section class="row justify-content-center align-items-center g-5">
+    <div class="col-12 d-flex justify-content-end">
+      <a
+        routerLink="../../detalles"
+        class="me-5 title btn-sm btn btn-danger rounded-0"
+        >Regresar</a
+      >
+    </div>
+    <!-- //? form   -->
+    <section class="col-12 col-md-8 col-lg-6">
+      <div class="row my-lg-5">
+        <div class="col-12 text-center">
+          <h2 class="title text-white text-decoration-underline">
+            Editar Credenciales del Empleado
+          </h2>
+        </div>
+      </div>
+      <form
+        action=""
+        class="row gap-1"
+        [formGroup]="forma"
+        (submit)="guardar()"
+      >
+        <div class="col row row-cols-2">
+          <label for="" class="col-12 title text-white-50 mb-3 text-center fs-5"
+            >Datos de Inicio de Sesión</label
+          >
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Email</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="email"
+                placeholder="Email"
+                formControlName="email"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Password</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                placeholder="Password"
+                formControlName="password"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col-12 d-grid gap-2">
+            <button
+              class="btn-shadow title btn btn-primary rounded-0 btn-sm"
+              type="submit"
+            >
+              Editar
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>

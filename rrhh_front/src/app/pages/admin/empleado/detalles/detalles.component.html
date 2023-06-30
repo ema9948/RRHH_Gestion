@@ -1,0 +1,166 @@
+<p *ngIf="!empleado">Cargando</p>
+
+<app-slices
+  [id]="empleado.id"
+  *ngIf="empleado"
+  class="animated fast fadeIn"
+></app-slices>
+
+<main class="container h-100 animated fast fadeIn" *ngIf="empleado">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-11 border">
+      <section class="row row-cols-3">
+        <label
+          for=""
+          class="col-12 title text-white-50 mb-3 text-center fs-5 py-3 text-decoration-underline"
+          >Datos del Empleado</label
+        >
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Nombre y Apellido</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{
+              empleado.usuarioDetalles.nombre +
+                " " +
+                empleado.usuarioDetalles.apellido
+            }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Ingreso</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.ingreso | date }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >DNI</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.dni }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Telefono</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.telefono }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Domicilío</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.domicilio }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Fecha de Nacimiento</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.fechanacimiento | date }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Obra Social</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.obrasocial }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Legajo</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.legajo }}
+          </p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Puesto</label
+          >
+          <p class="title fs-3 text-white-50">
+            {{ empleado.usuarioDetalles.puesto }}
+          </p>
+        </div>
+        <div
+          class="col-12 d-flex justify-content-center gap-5 align-items-center"
+        >
+          <a
+            routerLink="../editar/datos"
+            class="btn-shadow title btn btn-warning rounded-0"
+            type="button"
+          >
+            Editar Datos
+          </a>
+          <a
+            class="btn-shadow title btn btn-danger rounded-0"
+            type="button"
+            (click)="eliminar()"
+          >
+            Eliminar Empleado
+          </a>
+        </div>
+      </section>
+      <div class="w-100 border-bottom my-3"></div>
+      <section class="row justify-content-center align-items-center p-3 p-md-0">
+        <label
+          for=""
+          class="col-12 title text-white-50 mb-3 text-center fs-5 text-decoration-underline"
+          >Datos del Empleado</label
+        >
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Email</label
+          >
+          <p class="title fs-3 text-white-50">{{ empleado.email }}</p>
+        </div>
+        <div class="col">
+          <label
+            class="text-secondary text-decoration-underline para fs-6"
+            for=""
+            >Password</label
+          >
+          <p class="title fs-3 text-white-50">********</p>
+        </div>
+        <div class="col">
+          <a
+            routerLink="../editar/credenciales"
+            class="btn-shadow title btn btn-warning rounded-0"
+            type="button"
+          >
+            Editar
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

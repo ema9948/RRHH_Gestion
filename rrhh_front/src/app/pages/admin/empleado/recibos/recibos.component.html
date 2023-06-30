@@ -1,0 +1,114 @@
+<app-slices></app-slices>
+<main class="container animated fast fadeIn">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="row justify-content-between">
+        <!--//? filtrado por fecha  -->
+        <div class="col-4">
+          <h4 class="title text-white-50 text-decoration-underline">
+            Filtrar por Fecha
+          </h4>
+          <form action="" class="row">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >De fecha
+            </label>
+            <div class="col-12 input-group mb-3 input-group-sm">
+              <input
+                type="date"
+                #fechaA
+                class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >a fecha</label
+            >
+            <div class="col-12 input-group mb-3 input-group-sm">
+              <input
+                type="date"
+                #fechab
+                class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+
+            <div class="col-12 d-grid gap-2">
+              <button
+                class="btn-shadow title btn btn-info rounded-0 btn-sm"
+                type="button"
+                (click)="filterDate(fechaA, fechab)"
+              >
+                Filtrar
+              </button>
+            </div>
+          </form>
+        </div>
+        <!--//? Agregar recibo  -->
+        <div class="col-4 d-inline-flex align-items-end">
+          <form action="" class="row" (submit)="guardar()">
+            <h4 class="title text-white-50 text-decoration-underline mb-3">
+              Agregar Recibo
+            </h4>
+            <div class="mb-3">
+              <input
+                class="form-control form-control-sm bg-transparent text-white rounded-0"
+                type="file"
+                (change)="changeFile($event)"
+              />
+            </div>
+            <div class="col-12 d-grid gap-2">
+              <button
+                class="btn-shadow title btn btn-success rounded-0 btn-sm"
+                type="submit"
+              >
+                Agregar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-12 mb-3">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [defaultChecked]="false"
+          (change)="reciboFirmado($event)"
+          id="flexSwitchCheckChecked"
+          checked
+        />
+        <span class="para text-white-50">Recibos Firmado</span>
+      </div>
+    </div>
+    <table class="table table-responsive">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Firmado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let recibo of recibosFilter">
+        <tr>
+          <th>{{ recibo.name }}</th>
+          <td>{{ recibo.createOn | date }}</td>
+          <td>{{ recibo.firmar ? "Si" : "No" }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="eliminarRecibo(recibo)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

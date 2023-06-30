@@ -1,0 +1,81 @@
+<div class="container h-100 animated fast fadeIn">
+  <div class="row h-75 justify-content-center align-items-center">
+    <div class="col-12 col-md-8 col-lg-5">
+      <div class="row gap-5">
+        <div class="col-12 text-center text-white">
+          <h2 class="title">Inicio de Session Administrador</h2>
+        </div>
+        <!-- //! formulario -->
+        <div class="col-12">
+          <form
+            class="row text-center"
+            [formGroup]="forma"
+            (ngSubmit)="login()"
+          >
+            <div class="col-12 input-group mb-3">
+              <input
+                type="text"
+                placeholder="Correo"
+                formControlName="email"
+                [class.is-invalid]="verificarInput('email')"
+                class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <div class="col-12" *ngIf="verificarInput('email')">
+              <p class="para text-danger">Campo Requerido.</p>
+            </div>
+            <div class="col-12 input-group mb-3">
+              <input
+                type="password"
+                placeholder="Contraseña"
+                id="inputPassword5"
+                formControlName="password"
+                [class.is-invalid]="verificarInput('password')"
+                class="title form-control-lg form-control text-white bg-transparent border-white rounded-0"
+                aria-labelledby="passwordHelpBlock"
+              />
+            </div>
+            <div class="col-12" *ngIf="verificarInput('password')">
+              <p class="para text-danger">Campo Requerido.</p>
+            </div>
+            <div class="col-12 d-grid gap-2">
+              <button
+                class="btn-shadow title btn btn-outline-warning rounded-0"
+                type="submit"
+              >
+                Iniciar Session
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- btn register and reset password  -->
+        <div class="col-12">
+          <div class="row">
+            <div class="col-6">
+              <a
+                routerLink="/admin/register"
+                class="btn-shadow title w-100 rounded-0 btn btn-outline-info"
+              >
+                Registrar
+              </a>
+            </div>
+            <div class="col-6">
+              <a
+                routerLink="/sendReset/admin"
+                class="btn-shadow title w-100 rounded-0 btn btn-outline-secondary"
+              >
+                Cambiar Contraseña
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex h-25 justify-content-center align-items-end">
+    <app-footer></app-footer>
+  </div>
+</div>

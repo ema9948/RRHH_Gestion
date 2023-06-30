@@ -1,0 +1,199 @@
+<main class="container my-3 animated fast fadeIn" *ngIf="empleado">
+  <section class="row justify-content-center align-items-center g-5">
+    <div class="col-12 d-flex justify-content-end">
+      <a
+        routerLink="../../detalles"
+        class="me-5 title btn-sm btn btn-danger rounded-0"
+        >Regresar</a
+      >
+    </div>
+    <!-- //? form   -->
+    <section class="col-12 col-md-8 col-lg-6">
+      <div class="row my-lg-5">
+        <div class="col-12 text-center">
+          <h2 class="title text-white text-decoration-underline">
+            Editar Datos del Empleado
+          </h2>
+        </div>
+      </div>
+      <form
+        action=""
+        class="row gap-1"
+        [formGroup]="forma"
+        (submit)="guardar()"
+      >
+        <div class="col row row-cols-2">
+          <label
+            for=""
+            class="col-12 mb-3 fs-5 title text-white-50 mb-2 text-center"
+            >Datos Personales del Empleado</label
+          >
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Nombre</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                placeholder="Nombre"
+                name="nombre"
+                [class.is-invalid]="validateInput('nombre')"
+                formControlName="nombre"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Apellido</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                placeholder="Apellido"
+                formControlName="apellido"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Teléfono</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="tel"
+                placeholder="Teléfono"
+                formControlName="telefono"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for="">DNI</label>
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="number"
+                placeholder="DNI"
+                formControlName="dni"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Domicilío</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                placeholder="Domicilío"
+                formControlName="domicilio"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Fecha de Nacimiento</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="date"
+                placeholder=""
+                [ngModel]="
+                  empleado.usuarioDetalles.fechanacimiento | date : 'yyyy-MM-dd'
+                "
+                formControlName="fechanacimiento"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Ingreso</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="date"
+                placeholder=""
+                [ngModel]="
+                  empleado.usuarioDetalles.ingreso | date : 'yyyy-MM-dd'
+                "
+                formControlName="ingreso"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Obra Social</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                placeholder="Obra Social"
+                formControlName="obrasocial"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Legajo</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                formControlName="legajo"
+                placeholder="Legajo"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="text-secondary-emphasis para fs-6" for=""
+              >Puesto</label
+            >
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                formControlName="puesto"
+                placeholder="Puesto"
+                class="title form-control text-white bg-transparent border-white rounded-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+          </div>
+          <div class="col-12 d-grid gap-2">
+            <button
+              class="btn-shadow title btn btn-primary rounded-0 btn-sm"
+              type="submit"
+            >
+              Editar
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>

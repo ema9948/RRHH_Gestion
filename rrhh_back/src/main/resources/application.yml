@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:${DB}
+    username: ${DBUSERNAME}
+    password: ${DBPASS}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    databese: mysql
+    database-plataform: org.hibernate.dialect.MySQL8InnoDBDialect
+    servlet:
+      multipart:
+        max-file-size=5MB
+        max-request-size=10MB
+  jackson:
+    date-format:
+      yyyy-MM-dd
+  mail:
+    host:
+      smtp.gmail.com
+    port:
+      587
+    protocol:
+      smtp
+    username:
+      ${email}
+    password:
+      ${password}
+    properties:
+      mail:
+        smtp:
+          auth:
+            true
+          starttls:
+            enable:
+              true
+
+
